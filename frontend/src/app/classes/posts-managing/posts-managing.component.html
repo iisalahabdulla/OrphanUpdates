@@ -1,0 +1,75 @@
+<div class="contents_home">
+  <app-add-posts (refresh)="refreshPostsList()"></app-add-posts>
+</div>
+<br />
+
+<div class="contents_home2 contents_home">
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <th class="HeaderBg alignC">تحرير الأخبار</th>
+      </tr>
+    </table>
+
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <th
+          class=""
+          style="
+            text-align: center;
+            vertical-align: text-center;
+            background-color: #005838;
+            color: #fff;
+            font-size: 16px;
+            padding: 5px;
+          "
+        >
+          التاريخ
+        </th>
+        <th
+          class=""
+          style="
+            text-align: center;
+            vertical-align: text-center;
+            background-color: #005838;
+            color: #fff;
+            font-size: 16px;
+            padding: 5px;
+          "
+        >
+          العنوان
+        </th>
+
+        <th
+          class=""
+          style="
+            text-align: center;
+            vertical-align: text-center;
+            background-color: #005838;
+            color: #fff;
+            font-size: 16px;
+            padding: 5px;
+          "
+        ></th>
+      </tr>
+      <tbody *ngFor="let dataItem of PostsList">
+        <tr class="edit-form">
+          <!-- <td>{{dataItem.id}}/77/9879</td>
+                    <td>{{dataItem.title}}</td>   -->
+          <td style="text-align: center;">{{ dataItem.post_Create_date | date: "dd-MM-yyyy" }}</td>
+          <td style="text-align: center;">{{ dataItem.post_title }}</td>
+          <td class="td-btn">
+            <input
+              type="submit"
+              value="تحرير"
+              class="dfltBtn"
+              (click)="saveData(dataItem)"
+              routerLink="/edit-post"
+              routerLinkActive="active"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

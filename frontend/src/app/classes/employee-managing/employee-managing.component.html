@@ -1,0 +1,44 @@
+
+<div class=" contents_home">
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <th  *ngIf="userRoleStatus == 'مشرف'" class="HeaderBg alignC">إدارة المنسقين</th>
+        <th  *ngIf="userRoleStatus == 'مدير النظام'" class="HeaderBg alignC">إدارة المشرفين</th>
+      </tr>
+    </table>
+<label style="margin-right: 63px; ">أدخل كلمة البحث:</label>
+      <input style="width: 260px;" #search (change)="filter(search.value)">
+
+    <table style="width: 776px; margin: 0 auto">
+      <tr  class="header">
+        <td>اسم المستخدم</td>
+        <td>الإيميل</td>
+        <td>المنصب</td>
+
+      </tr>
+      <tbody >
+        <tr *ngFor="let dataItem of employeeList | paginate: { itemsPerPage: 10, currentPage: p} ">
+          <td>{{ dataItem.userName }}</td>
+          <td>{{ dataItem.userEmail }}</td>
+          <td>
+            <select #select name="role" (change)="updateRole(dataItem, select.value)" >
+              <option value="dataItem.roles_Id">{{dataItem.user_Role_name}}</option>
+              <option value="5">عضو</option>
+              <option *ngIf="userRoleStatus == 'مشرف'" value="4">منسق</option>
+              <option  *ngIf="userRoleStatus == 'مدير النظام'" value="3">مشرف</option>
+            </select>
+          </td>
+    
+
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls  class="my-pagination"
+    (pageChange)="p = $event"
+    previousLabel=""
+    nextLabel=""
+    screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+  </div>
+</div>

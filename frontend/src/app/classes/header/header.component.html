@@ -1,0 +1,82 @@
+<div class="top_bar">
+  <div>
+    <div class="tb_welcome"> مرحبا بك في بوابة الموظفين {{userName}}</div>
+    <div class="tb_lnks_srch flex-m">
+      <a class="topLnk" href="http://serv.tvtc.gov.sa">tvtc.gov.sa</a>
+      <span>
+        <a 
+        *ngIf="userRoleStatus != '' && userRoleStatus != undefined && userRoleStatus != null "
+        class="exit"
+        href=""
+        (click)="exit()">
+       الخروج</a>
+     </span>
+    </div>
+  </div>
+  <div class="clr"></div>
+</div>
+
+<div class="header">
+  <div class="logo">
+    <a href="http://www.tvtc.gov.sa"></a>
+  </div>
+  <div class="site"><h1>أخبار الموظفين</h1></div>
+</div>
+
+<div class="top_menu">
+  <div id="myjquerymenu" class="jquerycssmenu">
+    <div class="tb_lnks_srch">
+      <a class="topLnk" routerLink="/home" routerLinkActive="active"
+        >الصفحة الرئيسية</a
+      >
+      <a 
+      *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+      class="topLnk" 
+      routerLink="/login"
+      routerLinkActive="active"
+      >تسجيل الدخول</a>
+
+      <a 
+      *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+      class="topLnk" 
+      routerLink="/register" 
+      routerLinkActive="active"
+      >تسجيل بريد جديد</a>
+
+      <a 
+      *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+      class="topLnk" 
+      routerLink="/restore-password" 
+      routerLinkActive="active"
+      >هل نسيت كلمة المرور</a>
+
+      <a
+        *ngIf="userRoleStatus == 'منسق'"
+        class="topLnk"
+        routerLink="/posts-managing"
+        routerLinkActive="active"
+        >إدارة الأخبار</a
+      >
+      <a
+        *ngIf="userRoleStatus == 'مدير النظام'"
+        class="topLnk"
+        routerLink="/statistics"
+        routerLinkActive="active"
+        >الإحصائيات</a
+      >
+      <a
+        *ngIf="userRoleStatus == 'مشرف'"
+        class="topLnk"
+        routerLink="/employee-managing"
+        routerLinkActive="active"
+        >إدارة المنسقين</a>
+
+        <a
+        *ngIf="userRoleStatus == 'مدير النظام'"
+        class="topLnk"
+        routerLink="/employee-managing"
+        routerLinkActive="active"
+        >إدارة المشرفين</a>
+    </div>
+  </div>
+</div>

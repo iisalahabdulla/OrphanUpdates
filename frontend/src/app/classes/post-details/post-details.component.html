@@ -1,0 +1,110 @@
+<div class="contents_home">
+  <div class="breadcrumb">
+    <div class="bc_r">
+      <span>تفاصيل الخبر </span>
+    </div>
+  </div>
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <td class="HeaderBg alignC">تفاصيل الخبر</td>
+      </tr>
+
+      <div #refEl2 class="congrats-form">
+        <div>
+          <p>
+            <span>{{ data.post_title }}</span
+            ><br /><br />
+            <!-- {{ data.body }} -->
+            {{ data.postbody }} <br>
+            {{ data.employee_email }}
+          </p>
+        </div>
+      </div>
+      <input
+      *ngIf="userRoleStatus != '' && userRoleStatus != undefined && userRoleStatus != null "
+      (click)="generateCard(refEl2)"
+        type="submit"
+        value="تحميل إعلان الخبر"
+        class="dfltBtn"
+        style="margin-left: 10px"
+      />
+      <input
+      *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+      routerLink="/login"
+        routerLinkActive="active"
+        value="تحميل إعلان الخبر"
+        class="dfltBtn"
+        style="margin-left: 10px"
+      />
+
+      <div #refEl class="congrats-form congrats-form2">
+        <div>
+          <p>
+            {{ data.Postcongrat }}
+            <br /><br />
+            <input
+              placeholder="زميلك"
+              [(ngModel)]="userTitle"
+              type="text"
+              style="margin-left: 10px"
+            />
+            <span id="input" class="dis" >{{ userTitle }}</span> 
+            <span style="margin-left: 10px">/</span>
+            <input
+              placeholder=" محمد المحمد"
+              [(ngModel)]="userName"
+              type="text"
+            />
+
+            <span  id="input2" class="dis">{{ userName }} </span>
+          </p>
+        </div>
+      </div>
+
+      <input
+      *ngIf="userRoleStatus != '' && userRoleStatus != undefined && userRoleStatus != null "
+      (click)="generateCard(refEl)"
+        type="submit"
+        value="تحميل قالب التهنئة"
+        class="dfltBtn"
+        style="margin-left: 10px"
+      />
+
+      <a
+      *ngIf="userRoleStatus != '' && userRoleStatus != undefined && userRoleStatus != null "
+      href="mailto:{{ data.employee_email }}"
+        (click)="shareCount()"
+        class="dfltBtn"
+        style="margin-left: 10px"
+        >إرسال إيميل</a>
+
+        <input
+        *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+        routerLink="/login"
+        routerLinkActive="active"
+        value="تحميل قالب التهنئة"
+        class="dfltBtn"
+        style="margin-left: 10px"
+      />
+
+      <a
+      *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
+        routerLink="/login"
+        routerLinkActive="active"
+        class="dfltBtn"
+        style="margin-left: 10px"
+        >إرسال إيميل</a>
+
+      <input
+        type="submit"
+        value="عودة لمنصة الأخبار"
+        class="dfltBtn"
+        routerLink="/home"
+        routerLinkActive="active"
+      />
+
+      <a id="link"></a>
+    </table>
+  </div>
+</div>

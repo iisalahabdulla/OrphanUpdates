@@ -1,0 +1,81 @@
+<div class="contents_home">
+  <div class="breadcrumb">
+    <div class="bc_r">
+      <span>إدارة الأخبار </span>
+    </div>
+  </div>
+
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <th class="HeaderBg alignC">تحرير الأخبار</th>
+      </tr>
+    </table>
+
+    <div class="options">
+      <label for="region"> العنوان</label>
+
+      <input
+        #title
+        value="{{ data.post_title }}"
+        type="text"
+        name="title"
+        maxlength="30"
+      />
+      <div style="float: left">
+        <label for="region"> المنطقة</label>
+
+        <select #region name="region" value="{{ data.employee_region }}">
+          <option value="">اختيار المنطقة</option>
+          <option value="المدينة">المدينة</option>
+          <option value="أبها">أبها</option>
+          <option value="مكة">مكة</option>
+          <option value="الشرقية">الشرقية</option>
+          <option value="الرياض">الرياض</option>
+          <option value="القصيم">القصيم</option>
+          <option value="عسير">عسير</option>
+          <option value="تبوك">تبوك</option>
+          <option value="حائل">حائل</option>
+          <option value="نجران">نجران</option>
+          <option value="جازان">جازان</option>
+          <option value="الجوف">الجوف</option>
+          <option value="الحدود الشمالية">الحدود الشمالية</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="congrats-form" style="width: 776px; margin: 0 auto">
+      <div>
+        <p>
+          <textarea #textarea rows="5" cols="50">{{ data.postbody }}</textarea>
+
+          <input #email value="{{ data.employee_email }}" type="email" />
+        </p>
+      </div>
+    </div>
+
+    <br />
+    <input
+      (click)="
+        updatePost(data, textarea.value, title.value, email.value, region.value)
+      "
+      type="submit"
+      value="حفظ التعديلات"
+      class="dfltBtn"
+    />
+    <input
+      (click)="deletePost(data)"
+      type="submit"
+      value="حذف"
+      class="dfltBtn"
+      style="margin-right: 10px"
+    /><br /><br />
+    <input
+      type="submit"
+      value="عودة لإدارة الأخبار"
+      class="dfltBtn"
+      routerLink="/posts-managing"
+      routerLinkActive="active"
+    />
+  </div>
+</div>

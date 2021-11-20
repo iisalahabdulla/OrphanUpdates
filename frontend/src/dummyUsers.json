@@ -1,0 +1,39 @@
+{
+  "users": [{
+      "firstName": "احمد ",
+      "fatherName": "سعد ",
+      "grandFatherName": "محمد ",
+      "familyName": "الاحمري ",
+      "employeeNo": "0000000",
+      "departmentDesc": " ادارة العلاقات العامة ",
+      "region_desc": " منطقة الرياض "
+    },
+    {
+      "firstName": "خالد ",
+      "fatherName": "فيصل ",
+      "grandFatherName": "محمد ",
+      "familyName": "العمر ",
+      "employeeNo": "0000001",
+      "departmentDesc": " الموارد البشرية ",
+      "region_desc": " منطقة القصيم "
+    },
+    {
+      "firstName": "عبدالله ",
+      "fatherName": "عبدالعزيز ",
+      "grandFatherName": "خالد ",
+      "familyName": "الحارثي ",
+      "employeeNo": "0000002",
+      "departmentDesc": " الموارد البشرية ",
+      "region_desc": " منطقة الشرقية "
+    },
+    {
+      "firstName": "فيصل ",
+      "fatherName": "محمد ",
+      "grandFatherName": "معاذ ",
+      "familyName": "السبيعي ",
+      "employeeNo": "0000003",
+      "departmentDesc": " الموارد البشرية ",
+      "region_desc": " منطقة الغربية "
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+.q_links
+{
+    margin: 10px 0 0 0;
+}
+.q_links_list
+{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+.q_links_list > li
+{
+    float: right;
+    width: 25%;
+}
+
+.footer_right
+{
+    text-align: center;
+    padding: 20px;
+    font: 15px 'GESSText-Medium';
+    color: #005838;
+}
+.footer_right a
+{
+
+    color: #005838;
+    text-decoration:underline;
+}
+.footer_right a:hover
+{
+    text-decoration:none;
+}
+
+.fgd_m
+{
+    float: right;
+    background: url('src/assets/images/fgd_m.png') repeat-x top;
+    width: 938px;
+    padding: 10px;
+}
+
+.fgd_r
+{
+    float: right;
+}
+.fgd_r > img
+{
+    background: url('src/assets/images/fgd_r.png') no-repeat;
+    width: 11px;
+    height: 75px;
+}
+
+.fgd_l
+{
+    float: left;
+}
+.fgd_l > img
+{
+    background: url('src/assets/images/fgd_l.png') no-repeat;
+    width: 11px;
+    height: 75px;
+}

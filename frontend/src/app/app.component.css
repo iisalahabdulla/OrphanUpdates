@@ -1,0 +1,20 @@
+.main_div
+{
+    margin: 0 auto;
+    width: 960px;
+    background: url('src/assets/images/head_bg.png') no-repeat top;
+}
+
+.main_content, .contents_home
+{
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+

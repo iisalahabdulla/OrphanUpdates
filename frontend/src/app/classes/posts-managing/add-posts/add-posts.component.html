@@ -1,0 +1,562 @@
+<div class="breadcrumb">
+  <div class="bc_r">
+    <span>إدارة الأخبار </span>
+  </div>
+</div>
+
+<div class="int_content">
+  <table style="width: 776px; margin: 0 auto">
+    <tr>
+      <th class="HeaderBg alignC">إضافة الأخبار</th>
+    </tr>
+  </table>
+
+  <form name="form" #form="ngForm" (ngSubmit)="addPost()">
+  <table class="form" style="width: 776px; margin: 0 auto">
+    <tr>
+      <td><label for="occasion">نوع المناسبة</label></td>
+
+      <td>
+        <select name="occasion" [(ngModel)]="occasion"  required>
+          <option value="">اختيار نوع المناسبة</option>
+          <option *ngFor="let category of CategoryList"  value="{{category.CategoryName}}">{{category.CategoryName}}</option>
+        </select>
+      </td>
+
+      <td><label for="region"> المنطقة</label></td>
+
+      <td>
+        <select name="region" [(ngModel)]="region" required>
+          <option value="">اختيار المنطقة</option>
+          <option value="المدينة">المدينة</option>
+          <option value="أبها">أبها</option>
+          <option value="مكة">مكة</option>
+          <option value="الشرقية">الشرقية</option>
+          <option value="الرياض">الرياض</option>
+          <option value="القصيم">القصيم</option>
+          <option value="عسير">عسير</option>
+          <option value="تبوك">تبوك</option>
+          <option value="حائل">حائل</option>
+          <option value="نجران">نجران</option>
+          <option value="جازان">جازان</option>
+          <option value="الجوف">الجوف</option>
+          <option value="الحدود الشمالية">الحدود الشمالية</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="postTitle">عنوان الخبر</label></td>
+
+      <td>
+        <input
+          required
+          [(ngModel)]="postTitle"
+          type="text"
+          name="title"
+          maxlength="30"
+        />
+      </td>
+      <td><label for="occasion">رفع صورة الموظف</label></td>
+
+      <td>
+        <input type="file" id="img" name="img" accept="image/*" (change)="selectedFile($event)" />
+      </td>
+    </tr>
+  </table>
+
+  <!-- /// Wedding /// -->
+
+  <div *ngIf="occasion == 'زواج'" #refEl class="congrats-form">
+    <div>
+      <p>
+        ألف مبروك!
+        <br />
+        نبارك
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بمناسبة زواجه وذلك يوم
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="السبت"
+          type="text"
+        />
+        بتاريخ
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="١/١١/١٤١٨ هـ"
+          type="text"
+        />. <br />
+
+        سائلين الله لهم التوفيق والسداد في حياتهم، راجين من الله أن يرزقهم
+        الذرية الصالحة.
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// New Baby /// -->
+
+  <div *ngIf="occasion == 'مولود جديد'" #refEl class="congrats-form">
+    <div>
+      <p>
+        نتقدّم بأسمى آيات التهاني والتبريكات على قدوم
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="المولود/ ـة"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="الإدارة العامة"
+          type="text"
+        />. <br />
+
+        سائلين الله أن يجعله من حفظة كتابه الكريم ويحفظه لهم إن شاء الله.
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Sickness /// -->
+
+  <div *ngIf="occasion == 'تنويم في مستشفى'" #refEl class="congrats-form">
+    <div>
+      <p>
+        يرقد
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="زميلنا/ زميلتنا"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="العزيز/ة"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="الإدارة العامة"
+          type="text"
+        />
+        في مستشفى
+        <input
+          [(ngModel)]="input5"
+          name="title"
+          placeholder="الملك سعود"
+          type="text"
+        />
+        إثر
+        <input
+          [(ngModel)]="input6"
+          name="title"
+          placeholder="وعكة صحية"
+          type="text"
+        />. <br />
+        ونسأل له الصحة والعافية وندعو له بالشفاء العاجل.
+        <br />
+        للاطمئنان بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Graduation /// -->
+
+  <div *ngIf="occasion == 'تخرج'" #refEl class="congrats-form">
+    <div>
+      <p>
+        ألف مبروك!
+        <br />
+        نتقدّم بالتهنئة
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="الإدارة العامة"
+          type="text"
+        />
+        على حصوله درجة
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder=" البكالوريوس"
+          type="text"
+        />
+        في جامعة
+        <input
+          [(ngModel)]="input5"
+          name="title"
+          placeholder=" الملك فيصل"
+          type="text"
+        />. <br />
+        راجين من الله التوفيق له وأن يعم بنفعها في المرحلة العملية بالمؤسسة.
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Designation /// -->
+
+  <div *ngIf="occasion == 'قرار تعيين'" #refEl class="congrats-form">
+    <div>
+      <p>
+        نتقدّم بالتهنئة
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        على قرار التكليف
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="مديراً عاما"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="للإدارة العامة"
+          type="text"
+        />. <br />
+        متمنّين له التوفيق والنجاح.
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Prize-winning /// -->
+
+  <div *ngIf="occasion == 'حصول على جائزة تميز'" #refEl class="congrats-form">
+    <div>
+      <p>
+        ألف مبروك!
+        <br />
+        تهانينا
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="الإدارة العامة"
+          type="text"
+        />
+        حصوله على جائزة التمييز لتفانيه بالعمل ولجهوده المبذولة.
+        <br />
+        سائلين الله له دوام التوفيق والسداد في قادم الايام.
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Consolation /// -->
+
+  <div *ngIf="occasion == 'عزاء'" #refEl class="congrats-form">
+    <div>
+      <p>
+        إنا لله وإنا إليه راجعون. <br />
+
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="انتقلـ/ ـت"
+          type="text"
+        />
+        إلى رحمة الله
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="شقيقـ/ـة"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="الزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        ونسأل
+        <input
+          [(ngModel)]="input5"
+          name="title"
+          placeholder="لهـ/ـا"
+          type="text"
+        />
+        المغفرة والرحمة وأن يلهم الله ذويه الصبر والسلوان.
+        <br />
+        للتعزية بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Promotion /// -->
+
+  <div *ngIf="occasion == 'ترقية'" #refEl class="congrats-form">
+    <div>
+      <p>
+        ألف مبروك!
+        <br />
+        نبارك
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="للزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بمناسبة الترقية للـ
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="مرتبة"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="السابعة"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input5"
+          name="title"
+          placeholder="الإدارة العامة"
+          type="text"
+        />. <br />
+        ، سائلين الله له التوفيق والنجاح في المرحلة العملية القادمة.
+
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// Assigning /// -->
+
+  <div *ngIf="occasion == 'قرار تكليف'" #refEl class="congrats-form">
+    <div>
+      <p>
+        تم تكليف
+        <input
+          [(ngModel)]="input1"
+          name="title"
+          placeholder="الزميلـ/ـة"
+          type="text"
+        />/
+        <input
+          [(ngModel)]="input2"
+          name="title"
+          placeholder="سعد أحمد"
+          type="text"
+        />
+        بـ
+        <input
+          [(ngModel)]="input3"
+          name="title"
+          placeholder="الإدارة العامة للاتصال المؤسسي"
+          type="text"
+        />
+        <input
+          [(ngModel)]="input4"
+          name="title"
+          placeholder="رئيسا"
+          type="text"
+        />
+        لقسم
+        <input
+          [(ngModel)]="input5"
+          name="title"
+          placeholder="الإنتاج المرئي"
+          type="text"
+        />. <br />
+        ونبارك له هذا التكليف سائلين الله له التوفيق والسداد.
+
+        <br />
+        للتهنئة بإمكانكم إرسال بريد إلكتروني على العنوان
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <!-- /// other /// -->
+
+  <div *ngIf="occasion == 'مناسبة أخرى'" #refEl class="congrats-form">
+    <div>
+      <p>
+        <br />
+        نص إعلان الخبر:
+        <br />
+        <textarea
+          [(ngModel)]="input1"
+          name="title"
+          rows="5"
+          cols="50"
+        ></textarea>
+        <br />
+
+        نص التهنئة:
+        <br />
+        <textarea
+          [(ngModel)]="input2"
+          name="title"
+          rows="5"
+          cols="50"
+        ></textarea>
+        <br /><br />
+        إيميل الشخص المعني، للتهنئة:
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+
+  <input
+    [disabled]="!form.form.valid"
+    type="submit"
+    value="إضافة"
+    class="dfltBtn"
+    style="margin-right: 65px"
+  />
+</form>
+</div>

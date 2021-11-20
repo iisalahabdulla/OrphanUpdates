@@ -1,0 +1,81 @@
+<div class="contents_home">
+  <div class="breadcrumb">
+    <div class="bc_r">
+      <span>الإحصائيات </span>
+    </div>
+  </div>
+
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tr>
+        <td class="HeaderBg alignC">الإحصائيات</td>
+      </tr>
+
+      <div class="breadcrumb" style="width: 100%; margin-top: 30px">
+        <div class="bc_r">
+          <span>
+            الإحصائيات بناء على عدد تحميل قوالب المشاركة وقوالب التهنئة عام
+            {{ date }}
+          </span>
+        </div>
+      </div>
+
+      <div style="display: block; margin-top: 40px; margin-bottom: 40px">
+        <canvas
+          id="canvas"
+          baseChart
+          [chartType]="'line'"
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+        ></canvas>
+      </div>
+
+      <div class="pie">
+        <div class="breadcrumb bc_r" style="width: 100%">
+          <span>
+            الإحصائيات بناء على عدد الأخبار لكل صنف من بداية عام {{ date }} وحتى
+            الآن
+          </span>
+        </div>
+
+        <div style="display: block; margin-top: 40px; margin-bottom: 40px">
+          <canvas
+            id="canvas2"
+            baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="'pie'"
+          ></canvas>
+        </div>
+      </div>
+
+      <div class="pie">
+        <div class="breadcrumb bc_r" style="width: 100%">
+          <span>
+            الإحصائيات بناء على عدد الأخبار لكل منطقة من بداية عام
+            {{ date }} وحتى الآن
+          </span>
+        </div>
+
+        <div style="display: block; margin-top: 40px; margin-bottom: 40px">
+          <canvas
+            id="canvas3"
+            baseChart
+            [data]="pieChartData2"
+            [labels]="pieChartLabels2"
+            [chartType]="'pie'"
+          ></canvas>
+        </div>
+      </div>
+    </table>
+
+    <input
+      (click)="download_doc()"
+      type="submit"
+      value="تحميل الإحصائيات"
+      class="dfltBtn"
+    />
+  </div>
+</div>

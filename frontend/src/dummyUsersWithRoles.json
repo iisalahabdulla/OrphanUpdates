@@ -1,0 +1,15 @@
+{
+  "userRoles": [{
+      "userEmpNo": "0000000",
+      "userRole": "admin"
+    },
+    {
+      "userEmpNo": "0000001",
+      "userRole": "supervisor"
+    },
+    {
+      "userEmpNo": "0000002",
+      "userRole": "editor"
+    }
+  ]
+}

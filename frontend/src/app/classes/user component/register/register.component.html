@@ -1,0 +1,94 @@
+<div class="contents_home">
+
+    <div class="breadcrumb">
+        <div class="bc_r">
+          <span>تسجيل الدخول لبوابة الموظفين </span>
+        </div>
+      </div>
+      
+      <div class="int_content">
+      <div  style="width: 406px; margin: 0 auto">
+        <table >
+          <tr>
+            <td class="HeaderBg alignC">تسجيل بريد جديد</td>
+          </tr>
+        </table>
+      
+        <form name="form" [formGroup]="form" (ngSubmit)="form.valid && addNewUser(email,password)">
+          <table class="form" >
+            <tbody>
+            <tr>
+              <td><label for="">إيميل المستخدم:</label></td>
+              <td><input #email type="email" formControlName="Email"  /></td>
+            </tr>
+            
+            <tr>
+                <td><label for="">كلمة المرور:</label></td>
+                <td><input #password type="password" formControlName="password" /></td>
+              </tr>
+    
+              <tr>
+                <td><label for="">تأكيد كلمة المرور:</label></td>
+                <td><input #passwordconfirm type="password" formControlName="confirmPassword" /></td>
+              </tr>
+    
+              
+            <tr>
+                <td></td>
+                <input [disabled]="!form.valid || (password.value !== passwordconfirm.value)" type="submit" value="موافق" class="dfltBtn" /> 
+            </tr>
+    
+            </tbody>
+      
+          </table>
+      
+          <div *ngIf="form.get('Email')?.touched && form.get('Email')?.invalid
+         ||
+         form.get('password')?.touched && form.get('password')?.invalid 
+         ||
+         password.value !== passwordconfirm.value
+        
+          ">
+
+            <table
+              *ngIf="  
+                  form.get('Email')?.errors?.required ||
+                  form.get('Email')?.errors?.email ||
+                  form.get('Email')?.errors?.emailDomain ||
+                  form.get('password')?.errors?.required ||
+                  form.get('password')?.errors?.minlength ||
+                  password.value !== passwordconfirm.value
+              "
+              class="errorMessage"
+            >
+              <td style="width: 10%" class="alignC">
+                <img />
+              </td>
+              <td>
+                <span
+                  *ngIf="
+                  form.get('password')?.errors?.required ||
+                    form.get('Email')?.errors?.required 
+                  "
+                >
+                  الرجاء تعبئة الخانات المطلوبة <br />
+                </span>
+                <span *ngIf="form.get('Email')?.errors?.email">
+                  الايميل غير صحيح
+                </span>
+                <span *ngIf="form.get('Email')?.errors?.emailDomain">
+                    الايميل يجب أن ينتهي بـ tvtc.gov.sa
+                </span>
+                <span *ngIf="form.get('password')?.errors?.minlength">
+                   كلمة المرور يجب أن تحتوي على ٦ خانات على الأقل.</span>
+                    
+                    <span *ngIf="password.value !== passwordconfirm.value">
+                        كلمة المرور غير متطابقة</span>
+              </td>
+            </table>
+          </div>
+        </form>
+        </div>
+      </div>
+      
+      </div>

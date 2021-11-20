@@ -1,0 +1,128 @@
+<div class="contents_home">
+  <div class="breadcrumb">
+    <div class="bc_r">
+      <span>منصة الأخبار </span>
+    </div>
+  </div>
+
+  <div  
+  infiniteScroll
+  [alwaysCallback]="true"
+  [infiniteScrollThrottle]="0"
+  (scrolled)="onScroll()"
+  >
+
+
+  <div class="int_content">
+    <table style="width: 776px; margin: 0 auto">
+      <tbody>
+        <tr class="pdfRows">
+          <th colspan="2" class="HeaderBg alignC">نشرة الأخبار</th>
+        </tr>
+
+        <tr>
+        <td colspan="2">
+          <div>
+          <label for="region"> الفترة الزمنية</label> 
+          <select name="region" [(ngModel)]="timePeriod" (ngModelChange)="refreshPostsList()">
+            <option value="">اختيار الفترة الزمنية</option>
+            <option value="week">هذا الأسبوع </option>
+            <option value="month">هذا الشهر </option>
+            <option value="3months">آخر ثلاث شهور</option>
+
+          </select>
+        </div>
+      <div style="float: left;">
+          <label for="region"> المنطقة</label>
+          <select  name="region" [(ngModel)]="region" (ngModelChange)="refreshPostsList()" >
+            <option value="">اختيار المنطقة</option>
+            <option value="المدينة">المدينة</option>
+            <option value="أبها">أبها</option>
+            <option value="مكة">مكة</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="الرياض">الرياض</option>
+            <option value="القصيم">القصيم</option>
+            <option value="عسير">عسير</option>
+            <option value="تبوك">تبوك</option>
+            <option value="حائل">حائل</option>
+            <option value="نجران">نجران</option>
+            <option value="جازان">جازان</option>
+            <option value="الجوف">الجوف</option>
+            <option value="الحدود الشمالية">الحدود الشمالية</option>
+
+          </select>
+        </div>
+        </td>
+
+      </tr>
+
+        <tr *ngFor="let dataItem of newPostsList" class="pdfRows">
+          <td class="td" >
+            <img *ngIf="dataItem.post_Image != '' && dataItem.post_Image != null" [src]= "PhotoFilePath+dataItem.post_Image" />
+            <img *ngIf="dataItem.post_Image == '' || dataItem.post_Image == null" src= "/assets/images/logo2.png" />
+
+          </td>
+          <td class="td">
+            <b style="color: #005838; font-weight: bolder">
+            {{ dataItem.post_title }}
+            </b>
+            <br />
+            <span> {{ dataItem.employee_region }} - {{ dataItem.post_Create_date | slice:0:10  }}  </span> <br />
+            <br />
+            <span class="body"> {{ dataItem.postbody | slice:0:90 }}.. 
+
+              <a
+              (click)="saveData(dataItem)"
+              routerLink="/details"
+              routerLinkActive="active"
+            >
+              المزيد..
+            </a>
+            </span> 
+          
+          </td>
+        </tr>
+
+       
+      <tr>
+        <td >
+          <input
+          (click)="downloadPostsList()"
+          value="تحميل نشرة الأخبار"
+          class="dfltBtn"
+          type="submit"
+        />
+        </td>
+      </tr>
+      <tr *ngIf="downloading" style="color: #005838 ;">
+        جاري التحميل...
+
+      </tr>
+      </tbody>
+    </table>
+
+    <div style="position: relative; margin-right: 50%;">
+
+      <!-- spinner -->
+      <ngx-spinner
+      *ngIf = "PostsList.length  != newPostsList.length "
+      bdOpacity = 0.9
+      bdColor = ""
+      size = "default"
+      color = "#005838"
+      type = "ball-pulse-sync"
+      [fullScreen] = "false"
+      >
+      </ngx-spinner>  
+    </div>
+        <!-- Alert no more post -->
+        <div *ngIf = "PostsList.length  === newPostsList.length " class="row pb-5" style="position: relative; margin-right: 45%;">
+        <div class="col-md-12 d-flex justify-content-center">
+          <div class="text-muted h6 alert alert-secondary p-2">لا توجد أخبار أخرى </div>
+        </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>

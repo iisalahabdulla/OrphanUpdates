@@ -1,0 +1,50 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-collapse:separate;
+    border-spacing:0 15px;
+  }
+  
+  
+select, td input{
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      padding: 0 1px;
+      font-family: 'GESSText-Medium';
+      font-size: 16px;
+      background-color: #FFF;
+      border: 1px solid #eaeaea; 
+      width: 272px;
+      text-align: right;
+  }
+
+  .alert{
+      border-color: rgb(184, 39, 39) !important;
+      margin-bottom: 0;
+  }
+
+  .congrats-form{
+    border: 2px solid #005838;
+    background: url('src/assets/images/IMAGE2.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0 80%;
+    width: 776px; 
+    margin: 20px auto;
+    padding-bottom: 2px;
+}
+
+
+.congrats-form input{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 0 1px;
+    font-family: 'GESSText-Medium';
+    font-size: 16px;
+    background-color: #FFF;
+    border: 1px solid #eaeaea; 
+    width: 200px;
+    text-align: right;
+}

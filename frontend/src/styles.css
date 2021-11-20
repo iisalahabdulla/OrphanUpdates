@@ -1,0 +1,185 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fast.fonts.com/t/1.css?apiType=css&projectid=1f6c98ae-87d3-4c60-a2ad-64baa6746baa");
+
+/* 
+ @font-face
+{
+    font-family: 'GESSText-Medium';
+    
+    src: url('fonts/gess_medium.eot');
+    src: url('fonts/gess_medium.eot?') format('eot'), 
+     url('fonts/gess_medium.ttf') format('truetype'),
+     url('fonts/gess_medium.woff') format('woff'), 
+     url('fonts/gess_medium.svg#GESSText-Medium') format('svg');
+} */
+/* @font-face
+{
+    font-family: 'GESSText-Light';
+    
+    src: url('gess_light.eot');
+    src: url('fonts/gess_light.eot?') format('eot'),
+      url('fonts/gess_light.ttf') format('truetype'),
+      url('fonts/gess_light.woff') format('woff'), 
+      url('fonts/gess_light.svg#GESSText-Light') format('svg');
+}  */
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background: #f0f0f0 url(src/assets/images/bg.png) repeat-x top !important;
+    font-family:Tahoma, Verdana, Arial, Sans-Serif;
+}
+
+.clr , .clear
+{
+    clear: both;
+    height: 0;
+}
+
+/* /////////////// CONTENT //////////////////// */
+
+.breadcrumb
+{
+    border-bottom: 3px solid #005838;
+    padding: 0 0 1px 0;
+    width: 938px;
+}
+
+.single_block .breadcrumb
+{
+    width: 940px;
+}
+
+.single_block .breadcrumb .bc_r
+{
+    width: 800px;
+}
+
+.bc_r
+{
+    float: right;
+    width: 570px;
+    background-color: white;
+}
+.bc_r > a:link, .bc_r > a:visited, .bc_r > span
+{
+    display: inline-block;
+    font-family: "GESSText-Medium";
+    font-size: 15px;
+    text-decoration: none;
+    color: #616161;
+    line-height: 27px;
+    margin: 0 6px 0 2px;
+}
+.bc_r > a:hover
+{
+    color: #2e2e2e;
+}
+.bc_r > span
+{
+    color: #747474;
+    line-height: 21px;
+}
+
+.int_content
+{
+    border: 1px solid #eee;
+    background: #fff url('src/assets/images/ic_gd.png') repeat-x bottom;
+    padding: 10px 13px;
+    width: 936px;
+    min-height: 300px;
+      font-family: "GESSText-light";
+}
+.single_block .int_content
+{
+    width: 912px;
+}
+
+.alignC {
+    text-align: center;
+  }
+
+  .HeaderBg {
+    width: 100%;
+    height: 27px;
+    vertical-align: text-top;
+    background-color: #005838;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+
+}
+
+.dfltBtn {
+    border: 0;
+    border-radius: 4%;
+    width: 84px;
+    height: 24px;
+    background: #097a50 url(src/assets/images/button_bg.png) repeat-x top;
+    cursor: pointer;
+    font: 11px GESSText-Medium;
+    color: #fefefe;
+    text-align: center;
+    padding: 4px 0 4px 0;
+    display: inline-block;
+}
+.dfltBtn:hover{
+    color: #fbdc98;
+}
+
+
+/* /////////////// main content //////////////////// */
+
+
+.main_div
+{
+    margin: 0 auto;
+    width: 960px;
+    background: url('src/assets/images/head_bg.png') no-repeat top;
+}
+
+.main_content, .contents_home
+{
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.contents_home2{
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.congrats-form{
+    border: 2px solid #005838;
+    background: url('src/assets/images/IMAGE2.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0 80%;
+
+    margin: 20px 0;
+    padding-bottom: 2px;
+}
+
+.congrats-form p{
+    margin-top: 10%;
+    margin-right: 30%;
+    margin-bottom: 15%;
+    padding: 40px;  
+    text-align: center;
+}
+
+.congrats-form span{
+    color: cadetblue;
+    font-weight: bold;
+}

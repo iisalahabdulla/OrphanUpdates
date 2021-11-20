@@ -1,0 +1,69 @@
+<div class="contents_home">
+
+    <div class="breadcrumb">
+        <div class="bc_r">
+          <span>تسجيل الدخول لبوابة الموظفين </span>
+        </div>
+      </div>
+      
+      <div class="int_content">
+      <div  style="width: 406px; margin: 0 auto">
+     <table >
+        <tr>
+          <td class="HeaderBg alignC">   تفعيل الحساب</td>
+        </tr>
+      </table>
+    
+      <form name="form" [formGroup]="form" (ngSubmit)="form.valid && checkCode(code) ">
+        <table class="form" >
+          <tbody>
+  
+          <tr>
+            <td><label for=""> رمز التفعيل:</label></td>
+            <td><input #code type="text" formControlName="code" /></td>
+          </tr>
+  
+          
+          <tr>
+              <td></td>
+              <input [disabled]="!form.valid" type="submit"  value="تفعيل" class="dfltBtn" /> 
+              <label (click)="resendCode()" style="margin-right: 15px;" >إعادة الإرسال  </label>
+
+          </tr>
+  
+          </tbody>
+    
+        </table>
+
+        <table
+        *ngIf="success "
+        class="successMessage"
+        style="margin-bottom: 5px;"
+      >
+      <td style="width: 10%" class="alignC">
+      </td>
+        <td>
+          <span  *ngIf="success">تم إرسال الإيميل بنجاح</span>
+        </td>
+      </table>
+
+         <table
+          *ngIf="incorrectCode || failure"
+          class="errorMessage"
+        >
+          <td style="width: 10%" class="alignC">
+            <img />
+          </td>
+          <td>
+            <span  *ngIf="incorrectCode">رمز التفعيل المدخل غير صحيح</span>
+            <span  *ngIf="failure">فشل إرسال الإيميل</span>
+
+          </td>
+        </table>
+
+        </form>
+
+
+    </div>
+    </div>
+    </div>

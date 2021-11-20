@@ -1,0 +1,60 @@
+<div class="contents_home">
+
+<div class="breadcrumb">
+    <div class="bc_r">
+      <span>تسجيل الدخول لبوابة الموظفين </span>
+    </div>
+  </div>
+  
+  <div class="int_content">
+  <div  style="width: 406px; margin: 0 auto">
+    <table >
+      <tr>
+        <td class="HeaderBg alignC">تسجيل الدخول</td>
+      </tr>
+    </table>
+  
+    <form name="form" [formGroup]="form" (ngSubmit)="form.valid && checkCredintials(userName,password)">
+      <table class="form" >
+        <tbody>
+
+            <tr>
+                <td><label for="">اسم المستخدم:</label></td>
+                <td><input #userName type="text" formControlName="userName" /></td>
+              </tr>
+
+        <tr>
+          <td><label for="">كلمة المرور:</label></td>
+          <td><input #password type="password" formControlName="password" /></td>
+        </tr>
+
+        
+        <tr>
+            <td></td>
+            <input [disabled]="!form.valid" type="submit"  value="موافق" class="dfltBtn" /> 
+        </tr>
+
+        <a routerLink="/restore-password" routerLinkActive="active">هل نسيت كلمة المرور؟</a>
+        </tbody>
+  
+      </table>
+  
+   
+
+         <table
+          *ngIf="failure"
+          class="errorMessage"
+        >
+          <td style="width: 10%" class="alignC">
+            <img />
+          </td>
+          <td>
+            <span *ngIf="failure" >اسم المستخدم أو كلمة المرور غير صحيحة </span>
+              
+          </td>
+        </table>
+    </form>
+    </div>
+  </div>
+  
+  </div>
