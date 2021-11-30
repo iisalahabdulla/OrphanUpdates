@@ -2,9 +2,9 @@
   <div>
     <div class="tb_welcome"> مرحبا بك في بوابة الموظفين {{userName}}</div>
     <div class="tb_lnks_srch flex-m">
-      <a class="topLnk" href="http://serv.tvtc.gov.sa">tvtc.gov.sa</a>
+      <a class="topLnk" href="http://serv.tvtc.gov.sa"></a>
       <span>
-        <a 
+        <a
         *ngIf="userRoleStatus != '' && userRoleStatus != undefined && userRoleStatus != null "
         class="exit"
         href=""
@@ -18,9 +18,9 @@
 
 <div class="header">
   <div class="logo">
-    <a href="http://www.tvtc.gov.sa"></a>
+    <a href="/index.htmlcd .."></a>
   </div>
-  <div class="site"><h1>أخبار الموظفين</h1></div>
+  <div class="site"><h1>توظيف الأيتام</h1></div>
 </div>
 
 <div class="top_menu">
@@ -29,24 +29,24 @@
       <a class="topLnk" routerLink="/home" routerLinkActive="active"
         >الصفحة الرئيسية</a
       >
-      <a 
+      <a
       *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
-      class="topLnk" 
+      class="topLnk"
       routerLink="/login"
       routerLinkActive="active"
       >تسجيل الدخول</a>
 
-      <a 
+      <a
       *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
-      class="topLnk" 
-      routerLink="/register" 
+      class="topLnk"
+      routerLink="/register"
       routerLinkActive="active"
       >تسجيل بريد جديد</a>
 
-      <a 
+      <a
       *ngIf="userRoleStatus == '' || userRoleStatus == undefined || userRoleStatus == null "
-      class="topLnk" 
-      routerLink="/restore-password" 
+      class="topLnk"
+      routerLink="/restore-password"
       routerLinkActive="active"
       >هل نسيت كلمة المرور</a>
 
@@ -77,6 +77,12 @@
         routerLink="/employee-managing"
         routerLinkActive="active"
         >إدارة المشرفين</a>
+        <a
+        *ngIf="userRoleStatus == 'مدير النظام' || userRoleStatus == 'مشرف' || userRoleStatus == 'منسق' || userRoleStatus == 'عضو' "
+        class="topLnk"
+        routerLink="/user-profile"
+        routerLinkActive="active"
+        >الصفحة الشخصية</a>
     </div>
   </div>
 </div>

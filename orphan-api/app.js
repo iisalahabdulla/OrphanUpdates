@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
+
 const jwt = require('jsonwebtoken')
 const moongose = require('mongoose')
 const nodemailer = require('nodemailer')
@@ -9,7 +11,7 @@ const dbURL = require('./proprties').DB_URL;
 const UserModel = require('./models/users.model')
 const userRouter = require('./routes/users');
 
-
+app.use(cors())
 
 
 

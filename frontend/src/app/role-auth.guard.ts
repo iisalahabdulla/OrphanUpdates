@@ -23,7 +23,7 @@ export class RoleAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.service.userRole() === next.data.role || this.service.userRole() === next.data.role2) {
+    if (this.service.userRole() === next.data.role || this.service.userRole() === next.data.role2|| this.service.userRole() === next.data.role3|| this.service.userRole() === next.data.role4) {
       return true;
     } else {
       this._router.navigate(['/home']);

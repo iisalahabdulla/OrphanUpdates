@@ -27,6 +27,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ResetPasswordComponent } from './classes/user component/reset-password/reset-password.component';
+import { UserProfileComponent } from './classes/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ResetPasswordComponent } from './classes/user component/reset-password/
     CodeValidationComponent,
     RestorePasswordComponent,
     ResetPasswordComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

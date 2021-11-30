@@ -13,6 +13,7 @@ import { RegisterComponent } from './classes/user component/register/register.co
 import { CodeValidationComponent } from './classes/user component/code-validation/code-validation.component';
 import { RestorePasswordComponent } from './classes/user component/restore-password/restore-password.component';
 import { ResetPasswordComponent } from './classes/user component/reset-password/reset-password.component';
+import { UserProfileComponent } from './classes/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
     component: employeeManagingComponent,
     data: { role: 'مشرف', role2: 'مدير النظام'  },
     canActivate: [RoleAuthGuard],
+  },{
+    path: 'user-profile',
+    component: UserProfileComponent,
+    data: { role: 'مدير النظام', role2: 'مشرف', role3: 'منسق' , role4: 'عضو'},
+    canActivate: [RoleAuthGuard]
   },
   { path: 'home', component: PostsBoardComponent },
   { path: 'login', component: LoginComponent },

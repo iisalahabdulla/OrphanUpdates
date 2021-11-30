@@ -23,13 +23,13 @@
           <td>{{ dataItem.userEmail }}</td>
           <td>
             <select #select name="role" (change)="updateRole(dataItem, select.value)" >
-              <option value="dataItem.roles_Id">{{dataItem.user_Role_name}}</option>
-              <option value="5">عضو</option>
-              <option *ngIf="userRoleStatus == 'مشرف'" value="4">منسق</option>
-              <option  *ngIf="userRoleStatus == 'مدير النظام'" value="3">مشرف</option>
+              <option value="dataItem.roleName">{{dataItem.roleName}}</option>
+              <option *ngIf="dataItem.roleName != 'عضو' " value="5">عضو</option>
+              <option *ngIf="userRoleStatus == 'مشرف' && dataItem.roleName != 'منسق'" value="4">منسق</option>
+              <option  *ngIf="userRoleStatus == 'مدير النظام' && dataItem.roleName != 'مشرف' " value="3">مشرف</option>
             </select>
           </td>
-    
+
 
         </tr>
       </tbody>

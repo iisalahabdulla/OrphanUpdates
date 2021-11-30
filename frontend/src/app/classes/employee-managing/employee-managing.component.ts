@@ -29,6 +29,7 @@ export class employeeManagingComponent implements OnInit {
     this.service.getemployeeList().subscribe((data) => {
       this.employeeList = data;
       this.employeeList2 = data;
+
     });
   }
 
@@ -40,7 +41,7 @@ export class employeeManagingComponent implements OnInit {
         return (
           res.userName.match(text) ||
           res.userEmail.match(text) ||
-          res.user_Role_name.match(text)
+          res.roleName.match(text)
         );
       });
     }
@@ -49,8 +50,8 @@ export class employeeManagingComponent implements OnInit {
   updateRole(data: any, role: any) {
     //preparing employee information inside the value "val"
     var val = {
-      roles_Id: role,
-      Id: data.Id,
+      roleName: role,
+      _id: data._id,
       userName: data.userName,
       userEmail: data.userEmail,
     };

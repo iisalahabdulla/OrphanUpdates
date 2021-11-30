@@ -108,7 +108,7 @@ router.post('/', async (req, res) => {
             validation_code: generateCode(),
             reset_password_code: generateCode(),
             verification_status: false,
-            roleName: 'user',
+            roleName: 'عضو',
         })
         try {
             const u1 = await newUser.save()
@@ -123,6 +123,20 @@ router.post('/', async (req, res) => {
         }
     } else {
         res.send('User already exists !')
+    }
+})
+
+router.put('/', authinticateToken, async (req, res) => {
+    try {
+        const user = await userModel.findById(req.body._id)
+        const role = req.body.roleName == 3 ? 'مشرف' : req.body.roleName == 4 ? 'منسق' : 'عضو'
+        user.roleName = role
+        const u1 = await user.save()
+        console.log(u1);
+        res.json(u1)
+
+    } catch (err) {
+        res.send('Error: ' + err)
     }
 })
 
