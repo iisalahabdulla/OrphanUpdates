@@ -42,8 +42,6 @@ export class UserProfileComponent implements OnInit {
       this.doesUserNameExist = data.filter((user: any) => {
         return user.userName === userName
       })
-      console.log(this.doesUserNameExist);
-
       if(this.doesUserNameExist) {
         this.fullName = this.doesUserNameExist[0].fullName;
         this.age = this.doesUserNameExist[0].age;

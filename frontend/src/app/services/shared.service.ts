@@ -18,12 +18,12 @@ export class SharedService {
   readonly UsersAPIUrl = 'http://localhost:3000/api/UsersApi';
   readonly UsersProfileAPIUrl = 'http://localhost:3000/api/userProfile';
   readonly APIUrlPost = 'https://localhost:44328/api/PostsApi';
-  readonly PhotoUrl = 'http://kanzalebda3.com/articals/Uploads/';
+  // readonly PhotoUrl = 'http://kanzalebda3.com/articals/Uploads/';
   readonly CategoryApi = 'https://localhost:44328/api/CategoryApi';
-  readonly rootURL = 'http://localhost:3000/';
+  readonly rootURL = 'http://localhost:3000';
 
   getTesting(url: string) {
-    return this.http.get<any>(`${this.rootURL}getData`);
+    return this.http.get<any>(`${this.rootURL}/getData`);
   }
 
   constructor(private http: HttpClient) {}
