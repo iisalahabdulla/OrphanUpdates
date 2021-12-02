@@ -16,6 +16,7 @@ export class SharedService {
 
   readonly baseURL = 'https://localhost:44328';
   readonly UsersAPIUrl = 'http://localhost:3000/api/UsersApi';
+  readonly UsersProfileAPIUrl = 'http://localhost:3000/api/userProfile';
   readonly APIUrlPost = 'https://localhost:44328/api/PostsApi';
   readonly PhotoUrl = 'http://kanzalebda3.com/articals/Uploads/';
   readonly CategoryApi = 'https://localhost:44328/api/CategoryApi';
@@ -38,6 +39,8 @@ export class SharedService {
     Accept: 'application/json',
     Authorization: 'Bearer ' + localStorage.getItem('token') || '',
   });
+
+
   // CRUD operations for Posts
 
   getPostsList(): Observable<any[]> {
@@ -46,6 +49,14 @@ export class SharedService {
 
   addPosts(val: any) {
     return this.http.post(this.APIUrlPost, val, { headers: this.options_ });
+  }
+
+  addUserProfile(val: any) {
+    return this.http.post(this.UsersProfileAPIUrl + '/profile' , val)
+  }
+
+  getAllUserProfiles() {
+    return this.http.get(this.UsersProfileAPIUrl + '/allUserProfiles' , {headers: this.options_})
   }
 
   updatePosts(val: any) {
@@ -62,6 +73,9 @@ export class SharedService {
     return this.http.post<any>(this.APIUrlPost + '/UploadFiles', val, {
       headers: this.optionsPhoto_,
     });
+  }
+  UploadPdf(val: any): Observable<any[]> {
+    return this.http.post<any>(this.UsersProfileAPIUrl + '/upload', val);
   }
 
   // Posts Category
