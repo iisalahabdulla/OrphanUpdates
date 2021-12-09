@@ -14,7 +14,7 @@ export class SharedService {
   // readonly APIUrlPost = 'http://localhost:8080/api/PostsApi';
   // readonly CategoryApi = 'http://localhost:8080/api/CategoryApi';
 
-  readonly baseURL = 'https://localhost:44328';
+  readonly baseURL = 'http://localhost:3000';
   readonly UsersAPIUrl = 'http://localhost:3000/api/UsersApi';
   readonly UsersProfileAPIUrl = 'http://localhost:3000/api/userProfile';
   readonly APIUrlPost = 'http://localhost:3000/api/posts';

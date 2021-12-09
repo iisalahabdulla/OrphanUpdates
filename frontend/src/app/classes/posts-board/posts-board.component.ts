@@ -28,7 +28,7 @@ export class PostsBoardComponent implements OnInit {
   status: Boolean = false;
   region: string = '';
   timePeriod: any = '';
-  PhotoFilePath = this.service.baseURL + '/Uploads/';
+  PhotoFilePath = this.service.baseURL + '/';
   downloading: boolean = false;
 
   date = moment();

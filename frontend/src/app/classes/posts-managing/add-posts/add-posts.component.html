@@ -20,6 +20,7 @@
         <select name="occasion" [(ngModel)]="occasion"  required>
           <option value="">اختيار نوع المناسبة</option>
           <option *ngFor="let category of CategoryList"  value="{{category.CategoryName}}">{{category.CategoryName}}</option>
+          <option>وظيفة جديدة</option>
         </select>
       </td>
 
@@ -57,7 +58,7 @@
           maxlength="30"
         />
       </td>
-      <td><label for="occasion">رفع صورة الموظف</label></td>
+      <td><label for="occasion">رفع صورة الشركة</label></td>
 
       <td>
 
@@ -546,6 +547,33 @@
           [(ngModel)]="email"
           name="title"
           placeholder="hello@gmail.com"
+          type="email"
+        />
+      </p>
+    </div>
+  </div>
+  <!-- /// other /// -->
+
+  <div *ngIf="occasion == 'وظيفة جديدة'" #refEl class="congrats-form">
+    <div>
+      <p>
+        <br />
+        نص إعلان الوظيفة:
+        <br />
+        <textarea
+          [(ngModel)]="input1"
+          name="title"
+          rows="5"
+          cols="50"
+        ></textarea>
+        <br />
+
+        <br /><br />
+        إيميل جهة التوظيف:
+        <input
+          [(ngModel)]="email"
+          name="title"
+          placeholder="hr@company.com"
           type="email"
         />
       </p>

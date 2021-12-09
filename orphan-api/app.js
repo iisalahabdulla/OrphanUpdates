@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 var cors = require('cors')
+var path = require('path');
 
 const jwt = require('jsonwebtoken')
 const moongose = require('mongoose')
@@ -16,6 +17,8 @@ const userProfileRouter = require('./routes/user-profile')
 const postsRouter = require('./routes/posts')
 
 app.use(cors())
+app.use(express.static("postImages"));
+app.set('view engine', 'ejs');
 
 
 

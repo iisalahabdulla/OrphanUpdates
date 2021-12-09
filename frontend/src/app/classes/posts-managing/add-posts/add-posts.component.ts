@@ -38,21 +38,22 @@ export class AddPostsComponent implements OnInit {
       this.uploadPhoto();
     }
 
-    var category = this.CategoryList.filter((res: any) => {
-      return res.CategoryName.match(this.occasion);
-    });
+    // var category = this.CategoryList.filter((res: any) => {
+    //   return res.CategoryName.match(this.occasion);
+    // });
 
     //for server
     var val = {
       post_title: this.postTitle.trim(),
       postbody: this.body.trim(),
-      Postcongrat: this.congrat.trim(),
+      Postcongrat: "empty",
       employee_email: this.email.trim(),
-      CategoryName: this.occasion,
+      CategoryName: "وظيفة جديدة",
       employee_region: this.region,
       post_Image: this.PhotoFileName,
-      categoryId: category[0].id,
     };
+    console.log(val);
+
     this.service.addPosts(val).subscribe((res) => {
       //refresh the list
       this.refresh.emit();
@@ -77,10 +78,9 @@ export class AddPostsComponent implements OnInit {
   uploadPhoto() {
     var time = new Date();
     this.PhotoFileName = time.getTime() + ' - ' + this.file.name;
-    // this.PhotoFileName = this.file.name;
-    const formData: FormData = new FormData();
-    formData.append('uploadedFile', this.file, this.PhotoFileName);
 
+    const formData: FormData = new FormData();
+    formData.append('img', this.file, this.PhotoFileName);
     this.service.UploadPhoto(formData).subscribe((data: any) => {
       this.PhotoFileName = data.toString();
     });
@@ -151,11 +151,15 @@ export class AddPostsComponent implements OnInit {
         this.body = `${this.input1}`;
         this.congrat = `${this.input2}`;
         break;
+      case 'وظيفة جديدة':
+        this.body = `${this.input1}`;
+        this.congrat = `${this.input2}`;
+        break;
     }
   }
   ngOnInit(): void {
-    this.service.getAllCategoryNames().subscribe((data) => {
-      this.CategoryList = data;
-    });
+    // this.service.getAllCategoryNames().subscribe((data) => {
+    //   this.CategoryList = data;
+    // });
   }
 }

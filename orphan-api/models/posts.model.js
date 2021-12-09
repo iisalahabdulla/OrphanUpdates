@@ -15,11 +15,11 @@ var postsSchema = mongoose.Schema({
     },
     employee_name: {
         type: String,
-        required: true
+        required: false
     },
     employee_gender: {
         type: String,
-        required: true
+        required: false
     },
     employee_email: {
         type: String,
@@ -31,15 +31,19 @@ var postsSchema = mongoose.Schema({
     },
     employee_department: {
         type: String,
+        required: false
+    },
+    CategoryName: {
+        type: String,
         required: true
     },
     post_Create_date: {
         type: Date,
-        required: true
+        required: false
     },
     Coordinator_name: {
         type: String,
-        required: true
+        required: false
     },
     post_Image: {
         type: String,
@@ -55,7 +59,7 @@ var postsSchema = mongoose.Schema({
     },
     CategoryId: {
         type: Number,
-        required: true
+        required: false
     },
 })
 

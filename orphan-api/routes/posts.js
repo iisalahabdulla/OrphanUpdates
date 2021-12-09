@@ -2,10 +2,28 @@ require('dotenv').config()
 var express = require('express')
 const jwt = require('jsonwebtoken')
 var router = express.Router()
-var mongoose = require('mongoose')
+var fs = require('fs');
+var path = require('path');
+
 const multer = require('multer')
 
 const postsModel = require('../models/posts.model')
+var imgModel = require('../models/image.model');
+
+const fileStorageEngine = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './postImages')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+
+const upload = multer({
+    storage: fileStorageEngine
+})
+
+
 
 router.get('/', async (req, res) => {
     const posts = await postsModel.find()
@@ -17,12 +35,9 @@ router.post('/', authinticateToken, async (req, res) => {
         post_title,
         postbody,
         Postcongrat,
-        employee_name,
-        employee_gender,
         employee_email,
+        CategoryName,
         employee_region,
-        employee_department,
-        Coordinator_name,
         post_Image,
         CategoryId
     } = req.body
@@ -31,12 +46,9 @@ router.post('/', authinticateToken, async (req, res) => {
         post_title: post_title,
         postbody: postbody,
         Postcongrat: Postcongrat,
-        employee_name: employee_name,
-        employee_gender: employee_gender,
         employee_email: employee_email,
+        CategoryName: CategoryName,
         employee_region: employee_region,
-        employee_department: employee_department,
-        Coordinator_name: Coordinator_name,
         post_Image: post_Image,
         CategoryId: CategoryId,
         post_Create_date: Date.now()
@@ -55,6 +67,30 @@ router.post('/', authinticateToken, async (req, res) => {
     }
 
 })
+
+router.post('/UploadFiles', upload.single('img'), (req, res, next) => {
+    try {
+        var obj = {
+            name: req.body.name,
+            desc: req.body.desc,
+            img: {
+                data: fs.readFileSync(path.join('C:\\Users\\ABO_F\\Documents\\Visual Code Projectos\\Graduation project\\My project\\orphan-api\\postImages\\' + req.file.filename)),
+                contentType: 'image/png'
+            }
+        }
+        imgModel.create(obj, (err, item) => {
+            if (err) {
+                console.log(err);
+            } else {
+
+                res.json(req.file.filename)
+            }
+        });
+    } catch (err) {
+        res.send('Error: ' + err)
+    }
+})
+
 
 
 
