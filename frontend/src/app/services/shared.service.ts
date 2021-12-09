@@ -17,7 +17,7 @@ export class SharedService {
   readonly baseURL = 'https://localhost:44328';
   readonly UsersAPIUrl = 'http://localhost:3000/api/UsersApi';
   readonly UsersProfileAPIUrl = 'http://localhost:3000/api/userProfile';
-  readonly APIUrlPost = 'https://localhost:44328/api/PostsApi';
+  readonly APIUrlPost = 'http://localhost:3000/api/posts';
   // readonly PhotoUrl = 'http://kanzalebda3.com/articals/Uploads/';
   readonly CategoryApi = 'https://localhost:44328/api/CategoryApi';
   readonly rootURL = 'http://localhost:3000';

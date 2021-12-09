@@ -32,6 +32,10 @@ export class PostDetailsComponent {
     this.service.sharedCountClicked(val).subscribe((res) => {});
   }
 
+  public ApplyJob() {
+
+  }
+
   public generateCard(target: any): void {
     var val = {
       Id: this.data.Id
@@ -49,9 +53,9 @@ export class PostDetailsComponent {
 
     if (target.classList.contains("congrats-form2")){
       input.classList.remove("dis");
-      input2.classList.remove("dis");  
+      input2.classList.remove("dis");
     }
-    
+
     domtoimage.toPng(el, {
       height: el.offsetHeight * scale,
       width: el.offsetWidth * scale,

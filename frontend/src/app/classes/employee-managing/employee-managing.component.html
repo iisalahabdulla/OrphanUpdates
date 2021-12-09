@@ -15,7 +15,7 @@
         <td>اسم المستخدم</td>
         <td>الإيميل</td>
         <td>المنصب</td>
-
+        <td>الحالة الوظيفية</td>
       </tr>
       <tbody >
         <tr *ngFor="let dataItem of employeeList | paginate: { itemsPerPage: 10, currentPage: p} ">
@@ -29,8 +29,11 @@
               <option  *ngIf="userRoleStatus == 'مدير النظام' && dataItem.roleName != 'مشرف' " value="3">مشرف</option>
             </select>
           </td>
-
-
+          <td *ngFor="let profile of employeProfile">
+            <label *ngIf="dataItem.userName == profile.userName">
+              {{profile.workingStatus}}
+            </label>
+          </td>
         </tr>
       </tbody>
     </table>

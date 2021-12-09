@@ -10,8 +10,10 @@ const dbURL = require('./proprties').DB_URL;
 
 const UserModel = require('./models/users.model')
 const UserProfileModel = require('./models/user-profile.model')
+const PostsModel = require('./models/posts.model')
 const userRouter = require('./routes/users');
 const userProfileRouter = require('./routes/user-profile')
+const postsRouter = require('./routes/posts')
 
 app.use(cors())
 
@@ -36,6 +38,7 @@ app.use(function (req, res, next) {
 
 app.use('/api/UsersApi', userRouter);
 app.use('/api/userProfile', userProfileRouter);
+app.use('/api/posts', postsRouter);
 
 
 

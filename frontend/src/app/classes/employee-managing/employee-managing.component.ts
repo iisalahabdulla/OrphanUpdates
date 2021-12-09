@@ -20,6 +20,7 @@ export class employeeManagingComponent implements OnInit {
   status: Boolean = false;
   employeeList: any = [];
   employeeList2: any = [];
+  employeProfile: any = [];
 
   ngOnInit(): void {
     this.refreshemployeeList();
@@ -29,7 +30,9 @@ export class employeeManagingComponent implements OnInit {
     this.service.getemployeeList().subscribe((data) => {
       this.employeeList = data;
       this.employeeList2 = data;
-
+      this.service.getAllUserProfiles().subscribe((data2) => {
+        this.employeProfile = data2;
+      })
     });
   }
 
@@ -37,7 +40,17 @@ export class employeeManagingComponent implements OnInit {
     if (text === '') {
       this.refreshemployeeList();
     } else {
+
+      for (const employee of this.employeeList2 ) {
+          for ( const profile of this.employeProfile ) {
+           if(employee.userName == profile.userName ) {
+             employee["workingStatus"] = profile.workingStatus
+           }
+        }
+      }
       this.employeeList = this.employeeList2.filter((res: any) => {
+        console.log(res);
+
         return (
           res.userName.match(text) ||
           res.userEmail.match(text) ||
@@ -54,6 +67,7 @@ export class employeeManagingComponent implements OnInit {
       _id: data._id,
       userName: data.userName,
       userEmail: data.userEmail,
+      workingStatus:data.workingStatus
     };
     //updating employee information using services api
     if (confirm(`هل أنت متأكد من تغيير دور ${data.userName} ؟`)) {

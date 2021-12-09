@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <div  
+  <div
   infiniteScroll
   [alwaysCallback]="true"
   [infiniteScrollThrottle]="0"
@@ -23,7 +23,7 @@
         <tr>
         <td colspan="2">
           <div>
-          <label for="region"> الفترة الزمنية</label> 
+          <label for="region"> الفترة الزمنية</label>
           <select name="region" [(ngModel)]="timePeriod" (ngModelChange)="refreshPostsList()">
             <option value="">اختيار الفترة الزمنية</option>
             <option value="week">هذا الأسبوع </option>
@@ -69,7 +69,7 @@
             <br />
             <span> {{ dataItem.employee_region }} - {{ dataItem.post_Create_date | slice:0:10  }}  </span> <br />
             <br />
-            <span class="body"> {{ dataItem.postbody | slice:0:90 }}.. 
+            <span class="body"> {{ dataItem.postbody | slice:0:90 }}..
 
               <a
               (click)="saveData(dataItem)"
@@ -78,13 +78,13 @@
             >
               المزيد..
             </a>
-            </span> 
-          
+            </span>
+
           </td>
         </tr>
 
-       
-      <tr>
+
+      <!-- <tr>
         <td >
           <input
           (click)="downloadPostsList()"
@@ -93,7 +93,7 @@
           type="submit"
         />
         </td>
-      </tr>
+      </tr> -->
       <tr *ngIf="downloading" style="color: #005838 ;">
         جاري التحميل...
 
@@ -113,12 +113,12 @@
       type = "ball-pulse-sync"
       [fullScreen] = "false"
       >
-      </ngx-spinner>  
+      </ngx-spinner>
     </div>
         <!-- Alert no more post -->
-        <div *ngIf = "PostsList.length  === newPostsList.length " class="row pb-5" style="position: relative; margin-right: 45%;">
+        <div *ngIf = "PostsList.length  === newPostsList.length " class="pb-5 row" style="position: relative; margin-right: 45%;">
         <div class="col-md-12 d-flex justify-content-center">
-          <div class="text-muted h6 alert alert-secondary p-2">لا توجد أخبار أخرى </div>
+          <div class="p-2 text-muted h6 alert alert-secondary">لا توجد أخبار أخرى </div>
         </div>
         </div>
 
